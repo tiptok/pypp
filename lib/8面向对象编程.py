@@ -67,14 +67,21 @@ m.printParent()
 print("\n2.类方法/静态方法")
 class A(object):
     bar = 'bar'
+    def __init__(self) -> None:
+        super().__init__()
+        self.__bar = "__bar"
     @classmethod
     def class_method(self):
         print('class method',self.bar)
     @staticmethod
     def static_method():
         print('static method')
+
+    def get_bar_length(self):
+        return len(self.__bar)    
 A.class_method()
 A.static_method()
+A.get_bar_length()
 
 
 ## 1.使用__slots__ 限制实例的属性
